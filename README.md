@@ -66,7 +66,7 @@ src/
 
 Table and Board both receive the same filtered list. Saving a stage or notes patch updates that array by contact id, so both views stay in sync without duplicating records.
 
-`ContactDetailsPanel` keeps a draft of Stage and Notes. Opening a contact copies current values into the draft and does not mutate the source record until Save. Cancel and Discard restore nothing to the parent. The selected view is independent of the panel, so closing the drawer never resets Table/Board.
+`ContactDetailsPanel` keeps a draft of Stage and Notes. Opening a contact copies current values into the draft and does not mutate the source record until Save. Cancel discards the draft without changing the saved contact. Saving applies the changes to the shared contacts state, keeping Table and Board synchronized. The selected view is independent of the panel, so closing the drawer never resets Table/Board.
 
 ## Trade-offs and limitations
 
@@ -75,9 +75,4 @@ Table and Board both receive the same filtered list. Saving a stage or notes pat
 - New contact creation, label editing, and persistence are out of scope.
 - Sidebar destinations other than Contacts are visual placeholders.
 
-## What I would improve next
-
-- Board drag-and-drop with keyboard-accessible move actions.
-- Inline editing for labels and owner, plus undo after save.
-- Virtualized table rows and persisted view/search in `localStorage`.
-- A full keyboard grid for the table (arrow keys, row actions menu).
+**Live Demo:** https://alpha-zeta-five.vercel.app/
